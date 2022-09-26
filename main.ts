@@ -34,10 +34,10 @@ namespace AnyProp {
 // 
 // 3 = happy
 function happyEnding () {
-    happy1 = createScript("Cloud", "That's right! Such a polite young man!", 0)
-    happy2 = createScript("Old Man", "HaHaHa! What a flatterer. Take this flower as a token of my gratitude.", 3)
-    happy3 = createScript("Cloud", "Oh, it's beautiful! Needs some water though.", 4)
-    happy4 = createScript("Old Man", "Alright....", 1)
+    happy1 = createScript("Pineapple", "That's right! Such a polite young man!", 0)
+    happy2 = createScript("Mr. Kao", "HaHaHa! What a flatterer. Take this flower as a token of my gratitude.", 3)
+    happy3 = createScript("Pineapple", "Oh, it's beautiful! Needs some water though.", 4)
+    happy4 = createScript("Mr. Kao", "Alright....", 1)
     blockObject.setAnyProperty(happy1, AnyProp.NextPage, happy2)
     blockObject.setAnyProperty(happy2, AnyProp.NextPage, happy3)
     blockObject.setAnyProperty(happy3, AnyProp.NextPage, happy4)
@@ -49,6 +49,7 @@ function imSorry () {
     sorry3 = createScript("Pineapple", "free drink!! :)", 0)
     blockObject.setAnyProperty(sorry_1, AnyProp.NextPage, sorry2)
     blockObject.setAnyProperty(sorry2, AnyProp.NextPage, sorry3)
+    blockObject.setAnyProperty(sorry3, AnyProp.NextPage, finalChoice())
     return sorry_1
 }
 // microsoft/arcade-block-objects
@@ -102,10 +103,10 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     }
 })
 function finalChoice () {
-    FinalChoice1 = createScript("Old Man", "Well, I just need enough water for this garden here", 0)
-    FinalChoice2 = createScript("Cloud", "I can make that happen! What's the magic word?", 0)
+    FinalChoice1 = createScript("Mr. Kao", "Well, I just need enough water for this garden here", 0)
+    FinalChoice2 = createScript("Pineapple", "I can make that happen! What's the magic word?", 0)
     blockObject.setAnyProperty(FinalChoice1, AnyProp.NextPage, FinalChoice2)
-    blockObject.setStringArrayProperty(FinalChoice2, StrArrayProp.Choices, ["Please!", "Abracadabra!"])
+    blockObject.setStringArrayProperty(FinalChoice2, StrArrayProp.Choices, ["Please!", "Buzz OFF!!!!!!"])
     blockObject.setAnyProperty(FinalChoice2, AnyProp.Choice1, happyEnding())
     blockObject.setAnyProperty(FinalChoice2, AnyProp.Choice2, 0)
     return FinalChoice1
