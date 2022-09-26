@@ -144,6 +144,7 @@ function imAnOldMan () {
     blockObject.setAnyProperty(oldman1, AnyProp.NextPage, oldman2)
     blockObject.setStringArrayProperty(oldman2, StrArrayProp.Choices, ["OK here's $2!", "NO MONEY FOR YOU!!"])
     blockObject.setAnyProperty(oldman2, AnyProp.Choice1, happyEnding())
+    blockObject.setAnyProperty(oldman2, AnyProp.Choice2, noMoneyforyou())
     return oldman1
 }
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -159,6 +160,17 @@ function createScript (characterName: string, text: string, portrait: number) {
     blockObject.setNumberProperty(newScript, NumProp.Portrait, portrait)
     return newScript
 }
+function noMoneyforyou () {
+    nomoneyforyou1 = createScript("Mr.Kao", "Im tired of you always asking me for money! Go Away", 2)
+    nomoneyforyou2 = createScript("Pineapple", "OK, Ill give you a deal Buy two get one free!", 3)
+    nomoneyforyou3 = createScript("Pineapple", "$4 for 2 water and cheetos!! :)", 0)
+    blockObject.setAnyProperty(nomoneyforyou1, AnyProp.NextPage, nomoneyforyou2)
+    blockObject.setAnyProperty(nomoneyforyou2, AnyProp.NextPage, nomoneyforyou3)
+    return nomoneyforyou1
+}
+let nomoneyforyou3: blockObject.BlockObject = null
+let nomoneyforyou2: blockObject.BlockObject = null
+let nomoneyforyou1: blockObject.BlockObject = null
 let newScript: blockObject.BlockObject = null
 let oldman2: blockObject.BlockObject = null
 let oldman1: blockObject.BlockObject = null
